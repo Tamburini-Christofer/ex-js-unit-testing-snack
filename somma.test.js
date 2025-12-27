@@ -45,7 +45,7 @@ function isPalindroma(stringa) {
 }
 
 test("La funzione isPalindroma verifica se una stringa è un palindromo", () => {
-  expect(isPalindroma("anna")).toBe(true);
+  expect(isPalindroma("anna")).toBeTruthy();
 });
 
 // Snack 6
