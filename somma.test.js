@@ -19,3 +19,12 @@ test("La funzione createSlug restituisce una stringa in lowercase.", () => {
     expect(createSlug("SONO SCRITTO IN MAIUSCOLO")).toBe("sono scritto in maiuscolo");
 })
 
+function average(numeri) {
+  const somma = numeri.reduce((acc, val) => acc + val, 0);
+  return somma / numeri.length;
+}
+
+
+test("La funzione average calcola la media aritmetica di un array di numeri", () => {
+  expect(average([100, 0])).toBe(50);
+});
