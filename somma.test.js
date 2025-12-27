@@ -11,3 +11,11 @@ test("La funzione getInitials restituisce le iniziali di un nome completo.", () 
     expect(getInitials("Mario Rossi")).toBe("MR");
 })
 
+function createSlug(stringa) {
+  return stringa.toLowerCase()
+}
+
+test("La funzione createSlug restituisce una stringa in lowercase.", () => {
+    expect(createSlug("SONO SCRITTO IN MAIUSCOLO")).toBe("sono scritto in maiuscolo");
+})
+
