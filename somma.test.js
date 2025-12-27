@@ -10,8 +10,13 @@ test("La funzione getInitials restituisce le iniziali di un nome completo.", () 
 
 // Snack 2
 function createSlug(stringa) {
+  if (!stringa) {
+    throw new Error("errore vuoto");
+  }
+
   return stringa.toLowerCase().replaceAll(" ", "-");
 }
+
 
 test("La funzione createSlug restituisce una stringa in lowercase.", () => {
   expect(createSlug("SONO SCRITTO IN MAIUSCOLO")).toBe(
@@ -39,7 +44,40 @@ function isPalindroma(stringa) {
   return stringa === stringaInversa;
 }
 
-
 test("La funzione isPalindroma verifica se una stringa è un palindromo", () => {
   expect(isPalindroma("anna")).toBe(true);
 });
+
+// Snack 6
+test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido", () => {
+  expect(() => createSlug(null)).toThrow("errore vuoto");
+});
+
+// Snack 7
+const posts = [ 
+{
+  id: 5,
+  title: "Buon anno",
+  slug: "52"
+}, 
+{
+  id: 8,
+  title: "Buon natale",
+  slug: "45"
+} 
+]
+
+function findPostById(posts, id) {
+  if (typeof id !== "number") {
+    throw new Error("ID non valido");
+  }
+  return posts.find(post => post.id === id);
+}
+
+test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
+expect(findPostById(posts, 5)).toEqual({
+  id: 5,
+  title: "Buon anno",
+  slug: "52"
+});
+})
